@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             session_regenerate_id(true);
             $_SESSION['user_id'] = $natija['id'];
 
-            header("Location: index.php", true, 303 );
+            header("Location: index.php", true, 303);
             exit;
         } else {
             $xabar = 'Login yoki parol xato!';
@@ -46,21 +46,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login sahifasi</title>
+    <link rel="stylesheet" href="assets/output.css">
 </head>
 
-<body>
-    <?php if ($xabar !== null): ?>
-        <div>
-            <h1><?= $xabar ?></h1>
-        </div>
-    <?php endif; ?>
-    <form action="login.php" method="POST">
-        <label for="username">Ismingizni kiriting: </label>
-        <input type="text" name="username"> <br>
-        <label for="password">Parolingizni kiriting: </label>
-        <input type="password" name="password">
-        <button type="submit"> Kirish</button>
-    </form>
+<body class="flex min-h-screen items-center justify-center bg-gray-100 p-4">
+    <div class="bg-white p-4 sm:p-6 rounded-lg shadow-md  max-w-sm">
+        <h1 class="text-2xl font-bold text-center mb-6 text-blue-400">TIZIMGA KIRISH</h1>
+        <?php if ($xabar !== null): ?>
+            <div class="bg-red-100 text-red-700 border border-red-300 rounded p-3 mb-4">
+                <p><?= $xabar ?></p>
+            </div>
+
+
+        <?php endif; ?>
+        <form action="login.php" method="POST" class="flex flex-col gap-4">
+            <div>
+                <label for="username" class="block text-sm font-medium text-gray-700">Ismingizni kiriting: </label>
+                <input type="text" name="username" id="username" class="w-full border rounded p-2 focus:ring-2 focus:ring-blue-500 mt-1 border-gray-300 focus:outline-none">
+            </div>
+            <div>
+                <label for="password" class="block text-sm font-medium text-gray-700">Parolingizni kiriting: </label>
+                <input type="password" name="password" id="password" class="w-full border rounded p-2 focus:ring-2 focus:ring-blue-500 border-gray-300 focus:outline-none ">
+            </div>
+            <button type="submit" class="bg-blue-600 text-white p-2 rounded hover:bg-blue-700"> Kirish</button>
+
+        </form>
+    </div>
 </body>
 
 </html>
