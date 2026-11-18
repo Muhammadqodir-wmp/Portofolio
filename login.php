@@ -4,6 +4,7 @@ require_once 'config/bootstrap.php';
 
 
 session_start();
+$pageTitle = 'Kirish sahifasi';
 
 $xabar = null;
 
@@ -35,19 +36,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-
+require_once './layout/header.php';
 
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login sahifasi</title>
-    <link rel="stylesheet" href="assets/output.css">
-</head>
 
 <body class="flex min-h-screen items-center justify-center bg-gray-100 p-4">
     <div class="bg-white p-4 sm:p-6 rounded-lg shadow-md  max-w-sm">
