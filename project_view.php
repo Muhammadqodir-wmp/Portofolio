@@ -1,7 +1,7 @@
 <?php
 
 require_once 'config/bootstrap.php';
-
+$pageTitle = "Loyiha taqdimoti";
 
 $id = filter_var($_GET['id'] ?? null, FILTER_VALIDATE_INT);
 
@@ -48,45 +48,40 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $selObj instanceof Project) {
 }
 
 
-
+require_once "./layout/header.php";
 
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-    <a href="index.php">
-        <h4>Bosh sahifaga qaytish</h4>
-    </a>
+<body class="bg-gray-100 min-h-screen">
+    <?php 
+    require_once "./layout/navbar.php"; ?>
+    <main class="max-w-4xl mx-auto p-4 sm:p-8">
 
     <?php if ($xabar !== null): ?>
-        <h2> <?= htmlspecialchars($xabar) ?> </h2>
+        <div class="bg-red-100 border border-red-300 rounded-lg p-4 text-red-700">
+
+            <h2 class="font-semibold"> <?= htmlspecialchars($xabar) ?> </h2>
+        </div>
     <?php else: ?>
-        <h1><?= $selObj->getId() . '  ' .  htmlspecialchars($selObj->getTitle()) ?></h1>
-        <p>
+        <section class="bg-white border border-gray-200 rounded-xl p-6 sm:p-8 shadow-sm ">
+        <h1 class="text-3xl font-bold text-gray-900"><?= $selObj->getId() . '  ' .  htmlspecialchars($selObj->getTitle()) ?></h1>
+        <p class="mt-4 text-gray-600 leading-7">
             <?= htmlspecialchars($selObj->getDescription()) ?>
         </p>
         <?php if (isset($_SESSION['user_id']) == false): ?>
-
-            <a href="login.php"><?php echo "To'liq foydalanish uchunt tizimga kirish kerak"; ?></a>
-        <?php else: ?>
-            <form action="project_view.php?id=<?= $selObj->getId() ?>" method="POST" onsubmit="return confirm('O\'chirishga ishonchiz komilmi?')">
-                <button name="delete" type="submit">
-                    O'chirish</button>
-                <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token']) ?>">
-            </form>
-            <a href="project_edit.php?id=<?= $selObj->getId() ?>">
-                <h4>Loyihani tahrirlash</h4>
-            </a>
-        <?php endif; ?>
-    <?php endif; ?>
-</body>
-
-</html>
+            <a href="login.php" class="mt-8 inline-flex bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"><?php echo "To'liq foydalanish uchunt tizimga kirish kerak"; ?></a>
+            <?php else: ?>
+              <div class="mt-8 flex flex-wrap items-center gap-3"> 
+                  <form action="project_view.php?id=<?= $selObj->getId() ?>" method="POST" onsubmit="return confirm('O\'chirishga ishonchiz komilmi?')">
+                    <button name="delete" type="submit" class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">
+                        O'chirish</button>
+                    <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token']) ?>">
+                </form>
+                <a href="project_edit.php?id=<?= $selObj->getId() ?>" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                    Loyihani tahrirlash
+                </a>
+              </div>
+              <?php endif; ?>
+              <?php endif; ?>
+            </section>        
+        </main>
+    <?php require_once "./layout/footer.php"; ?>

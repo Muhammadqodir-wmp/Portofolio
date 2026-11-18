@@ -60,7 +60,6 @@ require_once "./layout/header.php";
         <?php if ($men !== null): ?>
             <section class="bg-white rounded-xl  shadow-sm p-6 sm:p-8 mb-8">
                 <h1 class="text-3xl font-bold text-gray-900 text-center">Assalomu alaykum, <?= htmlspecialchars($men->getName()) ?> portofoliosiga xush kelibsiz!</h1>
-                <a href="project_create.php"> Loyiha yaratish</a>
                 <div>
                     <p class="mt-4 text-gray-600 leading-7">Mening haqimda qisqacha ma'lumot: <br>
                         <?= $men->info ?>
