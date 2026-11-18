@@ -107,8 +107,5 @@ require_once "./layout/header.php";
             </div>
         </section>
     </main>
-    <h6> &copy; <?= date("Y/m/d - H:i:s") ?></h6>
 
-</body>
-
-</html>
+    <?php require_once "./layout/footer.php"; ?>
