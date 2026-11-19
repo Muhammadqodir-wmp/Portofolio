@@ -77,10 +77,10 @@ require_once "./layout/header.php";
                         </ul>
 
                     </div>
-                    <div class="bg-gray-50 border border-gray-200 rounded-lg p-5">
-                        <h4 class="text-lg font-semibold text-gray-900 mb-3"> Mening taklif eta oladigan xizmatlarim: </h4>
+                    <div class="bg-gray-50 border border-gray-200 rounded-lg p-5 dark:bg-gray-800 dark:text-white">
+                        <h4 class="text-lg font-semibold  mb-3"> Mening taklif eta oladigan xizmatlarim: </h4>
                         <ul class="space-y-2 "><?php foreach ($men->services as $servis): ?>
-                                <li class="text-gray-700"><?= $servis ?></li>
+                                <li class="text-sky-500"><?= $servis ?></li>
                             <?php endforeach ?>
                         </ul>
 

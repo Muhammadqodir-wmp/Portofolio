@@ -1,1 +1,30 @@
 @import 'tailwindcss';
+
+.field-input {
+    @apply mt-1 w-full rounded border border-gray-300 p-2 
+    focus:outline-hidden focus:ring-2 focus:ring-blue-500;
+}
+
+.field-textarea {
+    @apply mt-1 w-full rounded border border-gray-500 
+    focus:outline-hidden focus:ring-2 focus:ring-blue-500 p-3;
+}
+
+.alert-error{
+    @apply bg-red-100 border border-red-300 
+    rounded-lg p-4 text-red-700;
+}
+
+.btn-primary{
+    @apply bg-blue-500 text-white p-2 rounded 
+    hover:bg-blue-600 focus:ring-2 focus:ring-blue-700;
+}
+
+.btn-danger{
+    @apply bg-red-500 text-white p-2 rounded 
+    hover:bg-red-600 focus:ring-2 focus:ring-red-800;
+}
+
+.lb-text{
+    @apply block text-sm text-gray-700 font-medium;
+}

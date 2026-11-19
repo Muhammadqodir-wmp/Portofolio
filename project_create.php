@@ -46,25 +46,25 @@ require_once "./layout/header.php";
         <section class="bg-white border border-gray-200 rounded-xl p-6 sm:p-8 shadow-sm">
         <?php if ($xabar !== null): ?>
 
-            <h2 class="bg-red-100 border border-red-300 rounded-lg p-4 text-red-700"><?= htmlspecialchars($xabar) ?></h2>
+            <h2 class="alert-error"><?= htmlspecialchars($xabar) ?></h2>
 
         <?php endif; ?>
 
             <h1 class="text-2xl font-bold text-gray-900">Loyiha qo'shish</h1>
             <form action="project_create.php" method="post" class="mt-6 flex flex-col gap-5">
                     <div>
-                         <label class="block text-sm font-medium text-gray-700" for="title">Loyiha nomini kiriting: </label>
-                         <input class="mt-1 w-full border border-gray-300 rounded p-2 focus:outline-none focus:ring-blue-500 focus:ring-2" 
+                         <label class="lb-text" for="title">Loyiha nomini kiriting: </label>
+                         <input class="field-input" 
                          type="text" name="title" id="title" value="<?= htmlspecialchars($title); ?>"> <br>
             
                     </div>   
                 <div>
-                        <label class="block text-sm font-medium text-gray-700" for="description">Loyiha tavsifini kiriting: </label>
-                        <textarea class="mt-1 w-full border border-gray-300 rounded focus:outline-none focus:ring-blue-500 focus:ring-2 p-3" name="description" id="description" rows="8" >
+                        <label class="lb-text" for="description">Loyiha tavsifini kiriting: </label>
+                        <textarea class="field-textarea" name="description" id="description" rows="8" >
                         <?= htmlspecialchars($description);  ?>
                          </textarea> 
             </div>
-                <button type="submit" class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Saqlash</button>
+                <button type="submit" class="btn-primary">Saqlash</button>
             </form>
         </section>
     </main>

@@ -81,26 +81,26 @@ require_once "./layout/header.php";
 
         <?php if ($xabar !== null): ?>
 
-            <h2><?= htmlspecialchars($xabar) ?></h2>
+            <h2 class="alert-error"><?= htmlspecialchars($xabar) ?></h2>
         <?php endif; ?>
 
 
         <?php if ($selObj instanceof Project): ?>
             <section class="bg-white border border-gray-200 rounded-xl p-6 sm:p-8 shadow-sm">
-                <h1 class="text-xl font-bold text-gray-900">Loyiha tahrirlash</h1>
+                <h1 class="text-2xl font-bold text-gray-900">Loyiha tahrirlash</h1>
                 <form action="project_edit.php?id=<?= $selObj->getId() ?>" method="post" class="mt-6 flex flex-col gap-5">
                     <div class="">
-                        <label for="title" class="block text-sm font-medium text-gray-700">Loyiha nomini kiriting: </label>
-                        <input type="text" name="title" id="title" value="<?= htmlspecialchars($title); ?>" class="mt-1 w-full border border-gray-300 focus:outline-none focus:ring-blue-500 focus:ring-2">
+                        <label for="title" class="lb-text">Loyiha nomini kiriting: </label>
+                        <input type="text" name="title" id="title" value="<?= htmlspecialchars($title); ?>" class="field-input">
 
                     </div>
                     <div>
-                        <label for="description" class="block text-sm font-medium text-gray-700">Loyiha tavsifini kiriting: </label>
-                        <textarea name="description" id="description" rows="8" class="mt-1 w-full border border-gray-300 focus:outline-none focus:ring-blue-500 focus:ring-2">
+                        <label for="description" class="lb-text">Loyiha tavsifini kiriting: </label>
+                        <textarea name="description" id="description" rows="8" class="field-textarea">
                         <?= htmlspecialchars($description); ?>
                         </textarea>
                     </div>
-                    <button type="submit"  class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700 ">Saqlash</button>
+                    <button type="submit"  class="btn-primary">Saqlash</button>
                 </form>
             </section>
             <?php endif; ?>
